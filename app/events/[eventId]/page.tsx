@@ -53,21 +53,9 @@ export default function EventDashboardPage() {
         <Link
           href={`/events/${eventId}/hotels`}
           className="p-6 rounded-xl border text-left transition-all duration-200 group bg-white border-neutral-200 hover:border-blue-300 hover:shadow-sm"
-        <button
-          onClick={() => handleSectionClick("hotels")}
-          className={`p-6 rounded-xl border text-left transition-all duration-200 group ${
-            activeSection === "hotels"
-              ? "bg-blue-600 border-blue-600 shadow-md transform scale-[1.02]"
-              : "bg-white border-neutral-200 hover:border-neutral-300 hover:shadow-sm"
-          }`}
         >
           <div className="flex items-center justify-between mb-4">
             <span className="p-2 rounded-lg bg-blue-50 text-blue-600">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-            <span
-              className={`p-2 rounded-lg ${activeSection === "hotels" ? "bg-white/20 text-white" : "bg-blue-50 text-blue-600"}`}
-            >
               <svg
                 className="w-6 h-6"
                 fill="none"
@@ -82,18 +70,9 @@ export default function EventDashboardPage() {
                 />
               </svg>
             </span>
-            {activeSection === "hotels" && (
-              <div className="w-2 h-2 rounded-full bg-white animate-pulse" />
-            )}
           </div>
-          <h3
-            className={`text-lg font-semibold ${activeSection === "hotels" ? "text-white" : "text-neutral-900"}`}
-          >
-            Hotels
-          </h3>
-          <p
-            className={`text-sm mt-1 ${activeSection === "hotels" ? "text-white/80" : "text-neutral-500"}`}
-          >
+          <h3 className="text-lg font-semibold text-neutral-900">Hotels</h3>
+          <p className="text-sm mt-1 text-neutral-500">
             Manage hotel allocations and room mappings.
           </p>
         </Link>
