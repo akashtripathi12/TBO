@@ -50,6 +50,9 @@ export default function EventDashboardPage() {
       {/* Main Sections Toggles */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {/* Hotels Section Toggle */}
+        <Link
+          href={`/events/${eventId}/hotels`}
+          className="p-6 rounded-xl border text-left transition-all duration-200 group bg-white border-neutral-200 hover:border-blue-300 hover:shadow-sm"
         <button
           onClick={() => handleSectionClick("hotels")}
           className={`p-6 rounded-xl border text-left transition-all duration-200 group ${
@@ -59,6 +62,9 @@ export default function EventDashboardPage() {
           }`}
         >
           <div className="flex items-center justify-between mb-4">
+            <span className="p-2 rounded-lg bg-blue-50 text-blue-600">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
             <span
               className={`p-2 rounded-lg ${activeSection === "hotels" ? "bg-white/20 text-white" : "bg-blue-50 text-blue-600"}`}
             >
@@ -90,7 +96,7 @@ export default function EventDashboardPage() {
           >
             Manage hotel allocations and room mappings.
           </p>
-        </button>
+        </Link>
 
         {/* Guests Section Toggle */}
         <button
@@ -429,7 +435,7 @@ export default function EventDashboardPage() {
   );
 }
 
-// Payment Section Component
+// Payment Section Component (Agent View)
 function PaymentSection() {
   const [markupType, setMarkupType] = useState<"percent" | "fixed">("percent");
   const [markupValue, setMarkupValue] = useState<number>(10);
@@ -447,9 +453,14 @@ function PaymentSection() {
   const taxAmount = subtotal * TAX_RATE;
   const total = subtotal + taxAmount;
 
+  const handleGenerateLink = () => {
+    setIsGenerating(true);
+    setTimeout(() => setIsGenerating(false), 1500);
+  };
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-      {/* LEFT: Payment Methods & Configuration */}
+      {/* LEFT: Configuration & Details */}
       <div className="lg:col-span-2 space-y-6">
         {/* Markup Configuration */}
         <div className="bg-white border border-neutral-200 rounded-xl p-6 shadow-sm">
@@ -499,7 +510,7 @@ function PaymentSection() {
           </div>
         </div>
 
-        {/* Payment Method Selection */}
+        {/* Room Allocation Summary */}
         <div className="bg-white border border-neutral-200 rounded-xl p-6 shadow-sm">
           <h3 className="text-lg font-semibold text-neutral-900 mb-6">
             Payment Method
@@ -553,7 +564,7 @@ function PaymentSection() {
         </div>
       </div>
 
-      {/* RIGHT: Order Summary */}
+      {/* RIGHT: Final Invoice Summary */}
       <div className="lg:col-span-1">
         <div className="bg-white border border-neutral-200 rounded-xl p-6 shadow-sm sticky top-24">
           <h3 className="text-lg font-semibold text-neutral-900 mb-6">
