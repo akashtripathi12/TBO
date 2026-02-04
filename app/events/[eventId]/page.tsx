@@ -72,182 +72,385 @@ export default function EventDashboardPage() {
         </button>
       </div>
 
-      {/* Main Sections Toggles */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {/* Hotels Section Toggle */}
-        <Link
-          href={`/events/${eventId}/hotels`}
-          className="p-6 rounded-xl border text-left transition-all duration-200 group bg-white border-neutral-200 hover:border-blue-300 hover:shadow-sm"
-        >
-          <div className="flex items-center justify-between mb-4">
-            <span className="p-2 rounded-lg bg-blue-50 text-blue-600">
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-                />
-              </svg>
-            </span>
-          </div>
-          <h3 className="text-lg font-semibold text-neutral-900">Hotels</h3>
-          <p className="text-sm mt-1 text-neutral-500">
-            Manage hotel allocations and room mappings.
-          </p>
-        </Link>
+      {/* Main Sections Grid Layout */}
+      <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start">
+        
+        {/* LEFT COLUMN: Concierge & Bookings (Span 8) */}
+        <div className="xl:col-span-8 space-y-6">
+            <h2 className="text-xl font-bold text-neutral-900 border-b border-neutral-200 pb-4 flex items-center gap-2">
+                <span className="p-1.5 bg-blue-50 text-blue-600 rounded-lg">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
+                </span>
+                Concierge & Bookings
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* Hotels Section Toggle */}
+                <Link
+                href={`/events/${eventId}/hotels`}
+                className="card p-6 hover:shadow-md transition-all cursor-pointer group text-left"
+                >
+                <div className="flex items-start justify-between mb-4">
+                    <span className="p-2 rounded-lg bg-blue-50 text-blue-600">
+                    <svg
+                        className="w-6 h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                        />
+                    </svg>
+                    </span>
+                </div>
+                <h3 className="text-lg font-semibold text-neutral-900 group-hover:text-corporate-blue-100 transition-colors">Hotels</h3>
+                <p className="text-sm text-neutral-600 mt-1">
+                    Manage hotel allocations and room mappings.
+                </p>
+                </Link>
 
-        {/* Room Mapping Section Toggle */}
-        <Link
-          href={`/events/${eventId}/room-mapping`}
-          className="p-6 rounded-xl border text-left transition-all duration-200 group bg-white border-neutral-200 hover:border-indigo-300 hover:shadow-sm"
-        >
-          <div className="flex items-center justify-between mb-4">
-            <span className="p-2 rounded-lg bg-indigo-50 text-indigo-600">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />
-              </svg>
-            </span>
-          </div>
-          <h3 className="text-lg font-semibold text-neutral-900">Room Mapping</h3>
-          <p className="text-sm mt-1 text-neutral-500">
-            Visualize and assign rooms.
-          </p>
-        </Link>
+                {/* Flights Section Toggle */}
+                <Link
+                href={`/events/${eventId}/flights`}
+                className="card p-6 hover:shadow-md transition-all cursor-pointer group text-left"
+                >
+                <div className="flex items-start justify-between mb-4">
+                    <span className="p-2 rounded-lg bg-sky-50 text-sky-600">
+                    <svg 
+                        className="w-6 h-6" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                    >
+                        <path 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round" 
+                        strokeWidth={2} 
+                        d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" 
+                        />
+                    </svg>
+                    </span>
+                </div>
+                <h3 className="text-lg font-semibold text-neutral-900 group-hover:text-corporate-blue-100 transition-colors">Flights</h3>
+                <p className="text-sm text-neutral-600 mt-1">
+                    Book searches and manage flight manifests.
+                </p>
+                </Link>
 
-        {/* Guests Section Toggle */}
-        <button
-          onClick={() => handleSectionClick("guests")}
-          className={`p-6 rounded-xl border text-left transition-all duration-200 group ${
-            activeSection === "guests"
-              ? "bg-purple-600 border-purple-600 shadow-md transform scale-[1.02]"
-              : "bg-white border-neutral-200 hover:border-neutral-300 hover:shadow-sm"
-          }`}
-        >
-          <div className="flex items-center justify-between mb-4">
-            <span
-              className={`p-2 rounded-lg ${activeSection === "guests" ? "bg-white/20 text-white" : "bg-purple-50 text-purple-600"}`}
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                />
-              </svg>
-            </span>
-            {activeSection === "guests" && (
-              <div className="w-2 h-2 rounded-full bg-white animate-pulse" />
-            )}
-          </div>
-          <h3
-            className={`text-lg font-semibold ${activeSection === "guests" ? "text-white" : "text-neutral-900"}`}
-          >
-            Guests
-          </h3>
-          <p
-            className={`text-sm mt-1 ${activeSection === "guests" ? "text-white/80" : "text-neutral-500"}`}
-          >
-            View guest lists and RSVPs.
-          </p>
-        </button>
+                 {/* Packages Section (Non-functional) */}
+                <div className="card p-6 hover:shadow-md transition-all cursor-pointer group text-left">
+                <div className="flex items-start justify-between mb-4">
+                    <span className="p-2 rounded-lg bg-violet-50 text-violet-600">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                    </svg>
+                    </span>
+                </div>
+                <h3 className="text-lg font-semibold text-neutral-900 group-hover:text-corporate-blue-100 transition-colors">Packages</h3>
+                <p className="text-sm text-neutral-600 mt-1">
+                    Vacation bundles and custom packages.
+                </p>
+                </div>
 
-        {/* Payments Section Toggle */}
-        <button
-          onClick={() => handleSectionClick("payments")}
-          className={`p-6 rounded-xl border text-left transition-all duration-200 group ${
-            activeSection === "payments"
-              ? "bg-emerald-600 border-emerald-600 shadow-md transform scale-[1.02]"
-              : "bg-white border-neutral-200 hover:border-neutral-300 hover:shadow-sm"
-          }`}
-        >
-          <div className="flex items-center justify-between mb-4">
-            <span
-              className={`p-2 rounded-lg ${activeSection === "payments" ? "bg-white/20 text-white" : "bg-emerald-50 text-emerald-600"}`}
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </span>
-            {activeSection === "payments" && (
-              <div className="w-2 h-2 rounded-full bg-white animate-pulse" />
-            )}
-          </div>
-          <h3
-            className={`text-lg font-semibold ${activeSection === "payments" ? "text-white" : "text-neutral-900"}`}
-          >
-            Payments
-          </h3>
-          <p
-            className={`text-sm mt-1 ${activeSection === "payments" ? "text-white/80" : "text-neutral-500"}`}
-          >
-            Track payments and invoices.
-          </p>
-        </button>
+                {/* Umrah Section (Non-functional) */}
+                <div className="card p-6 hover:shadow-md transition-all cursor-pointer group text-left">
+                <div className="flex items-start justify-between mb-4">
+                    <span className="p-2 rounded-lg bg-emerald-50 text-emerald-600">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                    </svg>
+                    </span>
+                </div>
+                <h3 className="text-lg font-semibold text-neutral-900 group-hover:text-corporate-blue-100 transition-colors">Umrah</h3>
+                <p className="text-sm text-neutral-600 mt-1">
+                    Religious travel and pilgrimage services.
+                </p>
+                </div>
 
-        {/* Post-Booking Section Toggle */}
-        <button
-          onClick={() => handleSectionClick("postbooking")}
-          className={`p-6 rounded-xl border text-left transition-all duration-200 group ${
-            activeSection === "postbooking"
-              ? "bg-orange-600 border-orange-600 shadow-md transform scale-[1.02]"
-              : "bg-white border-neutral-200 hover:border-neutral-300 hover:shadow-sm"
-          }`}
-        >
-          <div className="flex items-center justify-between mb-4">
-            <span
-              className={`p-2 rounded-lg ${activeSection === "postbooking" ? "bg-white/20 text-white" : "bg-orange-50 text-orange-600"}`}
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </span>
-            {activeSection === "postbooking" && (
-              <div className="w-2 h-2 rounded-full bg-white animate-pulse" />
-            )}
-          </div>
-          <h3
-            className={`text-lg font-semibold ${activeSection === "postbooking" ? "text-white" : "text-neutral-900"}`}
-          >
-            Post-Booking
-          </h3>
-          <p
-            className={`text-sm mt-1 ${activeSection === "postbooking" ? "text-white/80" : "text-neutral-500"}`}
-          >
-            Manage cancellations and changes.
-          </p>
-        </button>
+                {/* Car Rental Section (Non-functional) */}
+                <div className="card p-6 hover:shadow-md transition-all cursor-pointer group text-left">
+                <div className="flex items-start justify-between mb-4">
+                    <span className="p-2 rounded-lg bg-amber-50 text-amber-600">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z" />
+                    </svg>
+                    </span>
+                </div>
+                <h3 className="text-lg font-semibold text-neutral-900 group-hover:text-corporate-blue-100 transition-colors">Car Rental</h3>
+                <p className="text-sm text-neutral-600 mt-1">
+                    Self-drive vehicle booking.
+                </p>
+                </div>
+
+                {/* Transfer Section (Non-functional) */}
+                <div className="card p-6 hover:shadow-md transition-all cursor-pointer group text-left">
+                <div className="flex items-start justify-between mb-4">
+                    <span className="p-2 rounded-lg bg-teal-50 text-teal-600">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                    </svg>
+                    </span>
+                </div>
+                <h3 className="text-lg font-semibold text-neutral-900 group-hover:text-corporate-blue-100 transition-colors">Transfer</h3>
+                <p className="text-sm text-neutral-600 mt-1">
+                    Airport pickups and drop-offs.
+                </p>
+                </div>
+
+                {/* Rail Section (Non-functional) */}
+                <div className="card p-6 hover:shadow-md transition-all cursor-pointer group text-left">
+                <div className="flex items-start justify-between mb-4">
+                    <span className="p-2 rounded-lg bg-red-50 text-red-600">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /> 
+                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+                    </svg>
+                    </span>
+                </div>
+                <h3 className="text-lg font-semibold text-neutral-900 group-hover:text-corporate-blue-100 transition-colors">Rail</h3>
+                <p className="text-sm text-neutral-600 mt-1">
+                    Train ticket bookings.
+                </p>
+                </div>
+
+                {/* Cabs Section Toggle (Non-functional) */}
+                <div className="card p-6 hover:shadow-md transition-all cursor-pointer group text-left">
+                <div className="flex items-start justify-between mb-4">
+                    <span className="p-2 rounded-lg bg-yellow-50 text-yellow-600">
+                    <svg 
+                        className="w-6 h-6" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                    >
+                        <path 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round" 
+                        strokeWidth={2} 
+                        d="M13 10V3L4 14h7v7l9-11h-7z" 
+                        />
+                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
+                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
+                    </svg>
+                    </span>
+                </div>
+                <h3 className="text-lg font-semibold text-neutral-900 group-hover:text-corporate-blue-100 transition-colors">Cabs</h3>
+                <p className="text-sm text-neutral-600 mt-1">
+                    Arrange transportation for guests.
+                </p>
+                </div>
+
+                {/* Catering Section Toggle (Non-functional) */}
+                <div className="card p-6 hover:shadow-md transition-all cursor-pointer group text-left">
+                <div className="flex items-start justify-between mb-4">
+                    <span className="p-2 rounded-lg bg-pink-50 text-pink-600">
+                    <svg 
+                        className="w-6 h-6" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                    >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    </span>
+                </div>
+                <h3 className="text-lg font-semibold text-neutral-900 group-hover:text-corporate-blue-100 transition-colors">Catering</h3>
+                <p className="text-sm text-neutral-600 mt-1">
+                    Menu planning and dietary requests.
+                </p>
+                </div>
+            </div>
+        </div>
+
+        {/* RIGHT COLUMN: Guest & Event Operations (Span 4) */}
+        <div className="xl:col-span-4 space-y-6">
+            <h2 className="text-xl font-bold text-neutral-900 border-b border-neutral-200 pb-4 flex items-center gap-2">
+                 <span className="p-1.5 bg-purple-50 text-purple-600 rounded-lg">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                 </span>
+                Guest Management
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-1 gap-6">
+                
+                {/* Room Mapping Section Toggle */}
+                <Link
+                href={`/events/${eventId}/room-mapping`}
+                className="card p-6 hover:shadow-md transition-all cursor-pointer group text-left flex items-start gap-4"
+                >
+                    <div className="shrink-0">
+                        <span className="p-2 rounded-lg bg-indigo-50 text-indigo-600 block">
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />
+                        </svg>
+                        </span>
+                    </div>
+                    <div>
+                        <h3 className="text-lg font-semibold text-neutral-900 group-hover:text-corporate-blue-100 transition-colors">Room Mapping</h3>
+                        <p className="text-sm text-neutral-600 mt-1">
+                            Visualize and assign rooms.
+                        </p>
+                    </div>
+                </Link>
+
+                 {/* Guests Section Toggle */}
+                <button
+                onClick={() => handleSectionClick("guests")}
+                onClick={() => handleSectionClick("guests")}
+                className={`p-6 rounded-lg transition-all cursor-pointer group text-left flex items-start gap-4 w-full ${
+                    activeSection === "guests"
+                    ? "bg-purple-600 border border-purple-600 shadow-md transform scale-[1.02]"
+                    : "card hover:shadow-md"
+                }`}
+                >
+                 <div className="shrink-0 relative">
+                    <span
+                    className={`p-2 rounded-lg block ${activeSection === "guests" ? "bg-white/20 text-white" : "bg-purple-50 text-purple-600"}`}
+                    >
+                    <svg
+                        className="w-6 h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                        />
+                    </svg>
+                    </span>
+                    {activeSection === "guests" && (
+                    <div className="w-2 h-2 rounded-full bg-white animate-pulse absolute -top-1 -right-1" />
+                    )}
+                </div>
+                <div>
+                    <h3
+                        className={`text-lg font-semibold group-hover:text-corporate-blue-100 transition-colors ${activeSection === "guests" ? "text-white group-hover:text-white" : "text-neutral-900"}`}
+                    >
+                        Guests
+                    </h3>
+                    <p
+                        className={`text-sm mt-1 text-left ${activeSection === "guests" ? "text-white/80" : "text-neutral-600"}`}
+                    >
+                        View guest lists and RSVPs.
+                    </p>
+                </div>
+                </button>
+
+                 {/* Queues Section (Non-functional) */}
+                <div className="card p-6 hover:shadow-md transition-all cursor-pointer group text-left flex items-start gap-4">
+                 <div className="shrink-0">
+                    <span className="p-2 rounded-lg bg-indigo-50 text-indigo-600 block">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    </span>
+                </div>
+                <div>
+                    <h3 className="text-lg font-semibold text-neutral-900 group-hover:text-corporate-blue-100 transition-colors">Queues</h3>
+                    <p className="text-sm text-neutral-600 mt-1">
+                        Manage waiting lists.
+                    </p>
+                </div>
+                </div>
+
+                {/* Payments Section Toggle */}
+                <button
+                onClick={() => handleSectionClick("payments")}
+                onClick={() => handleSectionClick("payments")}
+                className={`p-6 rounded-lg transition-all cursor-pointer group text-left flex items-start gap-4 w-full ${
+                    activeSection === "payments"
+                    ? "bg-emerald-600 border border-emerald-600 shadow-md transform scale-[1.02]"
+                    : "card hover:shadow-md"
+                }`}
+                >
+                 <div className="shrink-0 relative">
+                    <span
+                    className={`p-2 rounded-lg block ${activeSection === "payments" ? "bg-white/20 text-white" : "bg-emerald-50 text-emerald-600"}`}
+                    >
+                    <svg
+                        className="w-6 h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                    </svg>
+                    </span>
+                    {activeSection === "payments" && (
+                     <div className="w-2 h-2 rounded-full bg-white animate-pulse absolute -top-1 -right-1" />
+                    )}
+                 </div>
+                 <div>
+                    <h3
+                        className={`text-lg font-semibold group-hover:text-corporate-blue-100 transition-colors ${activeSection === "payments" ? "text-white group-hover:text-white" : "text-neutral-900"}`}
+                    >
+                        Payments
+                    </h3>
+                    <p
+                        className={`text-sm mt-1 text-left ${activeSection === "payments" ? "text-white/80" : "text-neutral-600"}`}
+                    >
+                        Track payments and invoices.
+                    </p>
+                 </div>
+                </button>
+
+                 {/* Post-Booking Section Toggle */}
+                <button
+                onClick={() => handleSectionClick("postbooking")}
+                onClick={() => handleSectionClick("postbooking")}
+                className={`p-6 rounded-lg transition-all cursor-pointer group text-left flex items-start gap-4 w-full ${
+                    activeSection === "postbooking"
+                    ? "bg-orange-600 border border-orange-600 shadow-md transform scale-[1.02]"
+                    : "card hover:shadow-md"
+                }`}
+                >
+                <div className="shrink-0 relative">
+                    <span
+                    className={`p-2 rounded-lg block ${activeSection === "postbooking" ? "bg-white/20 text-white" : "bg-orange-50 text-orange-600"}`}
+                    >
+                    <svg
+                        className="w-6 h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                    </svg>
+                    </span>
+                     {activeSection === "postbooking" && (
+                      <div className="w-2 h-2 rounded-full bg-white animate-pulse absolute -top-1 -right-1" />
+                    )}
+                </div>
+                <div>
+                    <h3
+                        className={`text-lg font-semibold group-hover:text-corporate-blue-100 transition-colors ${activeSection === "postbooking" ? "text-white group-hover:text-white" : "text-neutral-900"}`}
+                    >
+                        Post-Booking
+                    </h3>
+                    <p
+                        className={`text-sm mt-1 text-left ${activeSection === "postbooking" ? "text-white/80" : "text-neutral-600"}`}
+                    >
+                        Manage cancellations.
+                    </p>
+                </div>
+                </button>
+            </div>
+        </div>
       </div>
 
       {/* Dynamic Content Section */}

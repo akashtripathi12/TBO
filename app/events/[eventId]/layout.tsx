@@ -21,7 +21,7 @@ function EventLayoutContent({ children }: { children: React.ReactNode }) {
       <Navigation />
       <Sidebar />
       <main
-        className={`mt-16 transition-all duration-300 ${isCollapsed ? "ml-20" : "ml-64"}`}
+        className={`mt-16 transition-all duration-300 ${isCollapsed ? "ml-20" : "ml-64"} p-8`}
       >
         {children}
       </main>
