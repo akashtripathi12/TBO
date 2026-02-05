@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import Image from "next/image";
 import LogoutButton from "@/components/auth/LogoutButton";
 
 interface PortalHeaderProps {
@@ -27,13 +28,18 @@ export default function PortalHeader({
               href={`/events/${eventId}/portal/${guestId}`}
               className="flex items-center gap-3"
             >
-              <img
-                src="/images/logo.jpg"
-                alt="TBO Logo"
-                className="h-10 w-10 object-contain rounded-lg"
-              />
+              <div className="relative h-12 w-12">
+                <Image
+                  src="/images/logo.jpg"
+                  alt="TBO Logo"
+                  width={100}
+                  height={100}
+                  className="object-contain rounded-lg"
+                  priority
+                />
+              </div>
               <span className="text-xl font-bold text-gray-900">
-                TBO MICE Connect
+                TBO Event Planner
               </span>
             </Link>
             <span className="text-sm text-gray-400">|</span>
