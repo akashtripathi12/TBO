@@ -88,33 +88,35 @@ A production-ready platform that digitizes offline coordination workflows for gr
 
 ## 📁 Project Structure
 
+**Enterprise Architecture** - The platform follows a domain-driven design with clear separation of concerns:
+
 ```
 tbo/
-├── app/
-│   ├── dashboard/              # Main command center
-│   ├── events/[eventId]/       # Event-specific pages
-│   │   ├── guests/            # Guest collection
-│   │   ├── inventory/         # Hotel inventory
-│   │   ├── room-mapping/      # Room assignment
-│   │   └── booking/           # Booking pipeline
-│   ├── post-booking-intelligence/  # AI modules
-│   ├── analytics/             # Performance insights
-│   ├── m/[eventSlug]/         # Guest microsite
-│   ├── globals.css            # Global styles
-│   └── layout.tsx             # Root layout
-├── components/
-│   ├── Navigation.tsx         # Top navigation bar
-│   ├── Sidebar.tsx           # Vertical navigation
-│   ├── EventModal.tsx        # Event creation wizard
-│   ├── EventCard.tsx         # Event display card
-│   ├── MetricCard.tsx        # Dashboard metrics
-│   └── StatusChip.tsx        # Status indicators
-├── lib/
-│   ├── EventContext.tsx      # Global state management
-│   ├── types.ts              # TypeScript definitions
-│   └── mockData.ts           # Demo data
+├── src/                        # Source code (enterprise structure)
+│   ├── app/                   # Next.js App Router (routes only)
+│   ├── modules/               # Domain modules (dashboard, events, inventory, etc.)
+│   ├── components/            # Reusable UI components
+│   │   ├── ui/               # Core UI library (Badge, Button, Card, EventCard)
+│   │   ├── layout/           # Layout components
+│   │   └── legacy/           # Legacy components (migration in progress)
+│   ├── context/              # React Context providers (Auth, Event, Sidebar)
+│   ├── hooks/                # Custom React hooks
+│   ├── services/             # API and business logic services
+│   ├── utils/                # Utility functions (formatters, helpers)
+│   ├── config/               # Configuration and constants
+│   ├── types/                # Global TypeScript types
+│   └── lib/                  # Backward compatibility layer
+├── public/                    # Static assets
+├── docs/                      # Documentation
+│   ├── ARCHITECTURE.md       # Detailed architecture guide
+│   └── QUICK_REFERENCE.md    # Developer quick reference
 └── package.json
 ```
+
+**📖 Documentation:**
+- **[Architecture Guide](docs/ARCHITECTURE.md)** - Comprehensive documentation of the platform structure
+- **[Quick Reference](docs/QUICK_REFERENCE.md)** - Common tasks and patterns for developers
+- **[Walkthrough](brain/walkthrough.md)** - Implementation details and refactoring process
 
 ## 🎨 Design System
 
