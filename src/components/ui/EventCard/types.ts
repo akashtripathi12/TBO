@@ -12,6 +12,7 @@ export interface EventCardHeaderProps {
     startDate: string;
     endDate: string;
     status: Event['status'];
+    headGuestId?: string;
 }
 
 export interface EventCardMetricsProps {

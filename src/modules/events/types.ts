@@ -14,6 +14,7 @@ export interface Event {
     hotelCount: number;
     inventoryConsumed: number;
     status: 'active' | 'upcoming' | 'completed';
+    headGuestId?: string;
 }
 
 export interface HeadGuest {

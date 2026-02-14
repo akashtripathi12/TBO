@@ -7,14 +7,9 @@ export default function LogoutButton() {
     const { logout, user } = useAuth();
     const router = useRouter();
 
-    const handleLogout = () => {
-        logout();
-        // Redirect to appropriate login page
-        if (user?.role === 'agent') {
-            router.push('/login/agent');
-        } else {
-            router.push('/login/guest');
-        }
+    const handleLogout = async () => {
+        await logout();
+        router.push('/sign-in');
     };
 
     return (
