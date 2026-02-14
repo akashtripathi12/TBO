@@ -21,38 +21,42 @@ export default function EventModal({ isOpen, onClose }: EventModalProps) {
 
   if (!isOpen) return null;
 
-  const handleSubmit = () => {
-    // Create new event
+  const handleSubmit = async () => {
+    // Create new event payload (API will generate ID)
     const newEvent = {
-      id: `event-${Date.now()}`,
       name: formData.name,
       location: formData.location,
       startDate: formData.startDate,
       endDate: formData.endDate,
       organizer: formData.organizer,
       status: 'upcoming' as const,
+      // API defaults to 0 for these or calculates them
       guestCount: 0,
       hotelCount: 0,
       inventoryConsumed: 0,
-      hotels: [],
     };
 
-    addEvent(newEvent);
-
-    // Show success state
-    setStep(2);
-    setTimeout(() => {
-      onClose();
-      // Reset form
-      setStep(1);
-      setFormData({
-        name: '',
-        location: '',
-        startDate: '',
-        endDate: '',
-        organizer: '',
-      });
-    }, 2000);
+    try {
+        await addEvent(newEvent as any);
+        
+        // Show success state
+        setStep(2);
+        setTimeout(() => {
+          onClose();
+          // Reset form
+          setStep(1);
+          setFormData({
+            name: '',
+            location: '',
+            startDate: '',
+            endDate: '',
+            organizer: '',
+          });
+        }, 2000);
+    } catch (e) {
+        console.error("Failed to add event", e);
+        // Could set local error state here to show in UI
+    }
   };
 
   const resetAndClose = () => {

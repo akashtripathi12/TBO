@@ -4,6 +4,7 @@ import "./globals.css";
 import { EventProvider } from "@/context/EventContext";
 import { AuthProvider } from "@/context/AuthContext";
 
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -21,14 +22,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} font-sans`}>
-        <AuthProvider>
-          <EventProvider>
-            {children}
-          </EventProvider>
-        </AuthProvider>
-      </body>
-    </html>
+      <html lang="en" suppressHydrationWarning>
+        <body className={`${inter.variable} font-sans`}>
+          <AuthProvider>
+            <EventProvider>
+              {children}
+            </EventProvider>
+          </AuthProvider>
+        </body>
+      </html>
   );
 }

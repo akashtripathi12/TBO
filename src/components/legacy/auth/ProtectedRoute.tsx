@@ -17,25 +17,14 @@ export default function ProtectedRoute({ children, requiredRole, guestId }: Prot
     useEffect(() => {
         // Not authenticated - redirect to appropriate login
         if (!isAuthenticated || !user) {
-            if (requiredRole === 'agent') {
-                router.push('/login/agent');
-            } else if (requiredRole === 'guest') {
-                router.push('/login/guest');
-            } else {
-                // Default to agent login if no role specified
-                router.push('/login/agent');
-            }
+            router.push('/sign-in');
             return;
         }
 
         // Check role matches
         if (requiredRole && user.role !== requiredRole) {
-            // Wrong role - redirect to appropriate login
-            if (requiredRole === 'agent') {
-                router.push('/login/agent');
-            } else {
-                router.push('/login/guest');
-            }
+            // Wrong role - access denied or redirect home
+            router.push('/');
             return;
         }
 
